@@ -4,10 +4,10 @@ A collection of _python_ scripts to automate some tasks on [_Flickr™_](https:/
 
 ### [**_add_description/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/add_description)
    - **_add-description.py_**: Automatically add or append a description to photos on a photoset.
-   
+ 
 ### [**_add_gear_tags/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/add_gear_tags)
    - **_add-gear-tags.py_**: Automatically add tags for the gear used (eg: camera model, lens model) according to exif data.
-   
+ 
 ### [**_auto_add2groups/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/auto_add2groups)
    - **_add-photo-to-group.py_**: Automatically add photos to a group according to the group rules. These rules can be regarding the limit for the number of added photos (eg: 3 each day) or the actual content of the photos (eg: a given camera or lens).
 
@@ -19,23 +19,26 @@ A collection of _python_ scripts to automate some tasks on [_Flickr™_](https:/
 
 ### [**_best_lens/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/best_lens)
    - **_find-best-lens.py_**: Given a list of lenses, finds the best (more useful) one according to the current photos on the user's photostream or a given photoset. For each lens, the script counts how many photos were taken with a focal length covered by the lens and selects the one with the highest score. Can be used, for example, when buying a new lens, to decide from some options the one that will probably be used the most times. Or, you can use it to decide which lenses carry with you in a trip, based on a photoset with photos taken in a similar past trip (nature, city...).
-    
+
 ### [**_check_exif/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/check_exif)
    - **_check_exif.py_**: Checks for missing exif information on photos of a photostream.  When the script is run, if there are photos with missing exif information, the photoset 'Missing Exif' will be automatically created, and they will be added to it. Also, an e-mail will be sent with the link for the photoset.
 
 ### [**_del_img_comments/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/del_img_comments)
    - **_find-image-comments.py_**: Find, in the user's photostream, comments containg images and generates the script **_delete-comments.py_** to delete them.
-    
+
 ### [**_empty_photoset/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/empty_photoset)
    - **_empty-photoset.py_**: Empties a given photoset, leaving just 1 photo to avoid the photoset being excluded.
-    
+ 
 ### [**_find_explored/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/find_explored)
    - **_find-photos-in-explore.py_**: Find user's photos in _Explore_ for the current day and send an e-mail with the list of photos if any is found.
+
+### [**_focal_length_count/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/focal_length_count)
+   - **_get-focal-length-count.py_**: Generates a report with the count of each focal length for all photos in an user's photostream or photoset.
 
 ### [**_generate_kml/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/generate_kml)
    - **_generate-kml.py_**: Generates two _kml_ files with the coordinates of the photos on the user's photostream, that can be imported on [_Google Earth™_](https://www.google.com/earth/) and/or [_Google My Maps™_](https://www.google.com/maps/about/mymaps/).
    - **_generate-set-kml.py_**: Generates two _kml_ files with the coordinates of the photos on a given user's photoset, that can be imported on [_Google Earth™_](https://www.google.com/earth/) and/or [_Google My Maps™_](https://www.google.com/maps/about/mymaps/).
-    
+ 
 ### [**_group_admin/_**](https://github.com/HaraldoFilho/FlickrTasks/tree/master/group_admin)
    - **_group-admin-daily-report.py_**: Reports which photos should be removed or kept in a group according to specified exif parameters. e.g.: Lens Model. Also, generates the script **_remove-photos.py_** to remove the photos that need to be removed. The report shows only the photos that were added after the last removal plus the last 100 photos before that, to guarantee that any photos added or removed during the last run will be included in the current report. Additionaly, it reports the usernames of the group's new members. Made to be run at least once a day.
    - **_group-admin-monthly-report.py_**: Same as above, but the report shows all photos since the group creation and is good to catch photos the should have been removed but for any reason were not. This can happen, for example, if photos are removed of the group by the owner after others been added, which will make some added photos do not show up in the daily report. Made to be run at least once a month.
@@ -112,7 +115,7 @@ A web browser will be opened to get the user approval (in a non-graphical enviro
 - **auto_tasks**: Inside directory 'auto_tasks' create a new one to your specific need (name it what you want, eg: auto_tags) and copy the content of the directory 'files' into it. Create a link (or copy) to the file __api_credentials.py__. There is an additional file necessary to run the script:
     - **procs.py**: Implement here the procedures that will actually process the photos.
 
-- **best_lens**: Inside directory 'best_lens' create a link (or copy) to the file __api_credentials.py__. There is one additional file necessary to run the script:
+- **best_lens**: Inside directory 'best_lens' create a link (or copy) to the file __api_credentials.py__. There are two additional file necessary to run the script:
     - **data.py**: Include here the camera maker, system and the list of lenses, following the instruction inside the file.
     - **config.py**: Include here the user id, photoset id and the privacy filter. If no photoset id is provided the script will get photos from the entire user's photostream. 
 
@@ -121,7 +124,7 @@ A web browser will be opened to get the user approval (in a non-graphical enviro
 - **check_exif**: Inside directory 'check_exif' create a link (or copy) to the file __api_credentials.py__. There are two additional files necessary to run the script:
     - **procs.py**: Open the file and read the comments to know how to customize it for your specific needs.
     - **mail.py**: Copy the file from 'mail_cfg' to 'check_exif' directory and edit it to add the e-mail addresses and change the e-mail subject if wanted.
-    
+
 - **del_img_comments**: Inside directory 'del_img_comments' create a link (or copy) to the file __api_credentials.py__. There are two additional files necessary to run the script:
     - **procs.py**: There is no need to edit this file, keep it as is.
     - **skip.py**: List to skip comments from deletion in case any text of the list is found on it.
@@ -135,6 +138,11 @@ A web browser will be opened to get the user approval (in a non-graphical enviro
     - **mail.py**: Copy the file from 'mail_cfg' to 'find_explored' directory and edit it to add the e-mail addresses and change the e-mail subject if wanted.
 
     _**TIP**: Create a [cron](https://opensource.com/article/17/11/how-use-cron-linux) to automatically check for photos in Explore and configure it to run at least once a day._
+
+- **focal_length_count**: Inside directory 'focal_length_count' create a link (or copy) to the file __api_credentials.py__. There is one additional file necessary to run the script:
+    - **config.py**: Include here the user id, photoset id and the privacy filter. If no photoset id is provided the script will get photos from the entire user's photostream. 
+
+    _**IMPORTANT NOTICE:** The progress and the selected lens will be shown directly on the terminal, so the script must not be run in background. It will also be generated a report file with the count of each focal length._
 
 - **generate_kml**: Inside directory 'generate_kml' create a link (or copy) to the file __api_credentials.py__. There are four additional files necessary to run the scripts:
     - **procs.py**: There is no need to edit this file, keep it as is.
